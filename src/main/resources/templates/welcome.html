@@ -8,7 +8,9 @@
 <body>
 	<span th:utext="'Welcome '+${username} +'!'"></span>
 	
-	<form th:action="@{__${bbsUrl}__}" method="POST">
+	<form action="/returnToBBS" method="POST">
+		<input type="hidden" name="bbsUrl" readonly th:value="${bbsUrl}">
+		<input type="hidden" name="token" readonly th:value="${#ctx.session.token}">
 		<button class="w3-theme" name="action" value="next">Return to BBS</button>
 	</form>
 </body>
